@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = ['ABCDEEF,GHJKKM'];
+        var result = [];
+        function recur(arr) {
+            arr = arr.join(",");
+            arr = arr.split("");
+            console.log(arr.sort());
+            var arr1 = arr.join("");
+            var k = 0;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == arr[i + 1]) {
+                    for (var j = i + 2; j < arr.length; j++) {
+                        if (arr[i] != arr[j]) {
+                            break;
+                        }
+                    }
+                    result[k++] = arr1.slice(i, j);
+                    i = j - 1;
+                }
+            }
+        }
+        recur(arr);
+        document.write("<div>" + result + "</div>");
+        console.log(result);
+    </script>
+    <style>
+        div{
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
